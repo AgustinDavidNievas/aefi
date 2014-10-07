@@ -39,6 +39,7 @@
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(211, 21);
             this.cmbRoles.TabIndex = 0;
+            this.cmbRoles.SelectedIndexChanged += new System.EventHandler(this.cmbRoles_SelectedIndexChanged);
             // 
             // lblElegirRol
             // 

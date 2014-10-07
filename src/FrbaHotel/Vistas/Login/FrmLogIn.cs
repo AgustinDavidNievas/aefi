@@ -20,5 +20,10 @@ namespace FrbaHotel.Login
         {
 
         }
+
+        private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
