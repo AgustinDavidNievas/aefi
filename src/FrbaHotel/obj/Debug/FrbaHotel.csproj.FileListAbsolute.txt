@@ -1,0 +1,7 @@
+D:\Archivos de programa 2\SvnGdd\Aplicacion Desktop\FrbaHotel\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+D:\Archivos de programa 2\SvnGdd\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+D:\Archivos de programa 2\SvnGdd\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+D:\Archivos de programa 2\SvnGdd\Aplicacion Desktop\FrbaHotel\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
+E:\TP GDD AEFI\trunk\src\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+D:\Archivos de programa 2\Gestión De Datos TP\trunk\src\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+D:\Archivos de programa 2\Gestión De Datos TP\trunk\src\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
