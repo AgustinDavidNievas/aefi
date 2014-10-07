@@ -69,7 +69,7 @@ INSERT INTO AEFI.TL_Funcionalidad_Rol (ID_Rol, ID_Funcionalidad) (
 		WHERE AEFI.TL_Rol.Descripcion = 'Administrador'
 		AND (AEFI.TL_Funcionalidad.Descripcion = 'ABM de Rol'
 		OR AEFI.TL_Funcionalidad.Descripcion = 'AMB de Usuario'
-		OR AEFI.TL_Funcionalidad.Descripcion = 'ABM de Hotel)'
+		OR AEFI.TL_Funcionalidad.Descripcion = 'ABM de Hotel'
 		OR AEFI.TL_Funcionalidad.Descripcion = 'ABM de Habitacion'
 		OR AEFI.TL_Funcionalidad.Descripcion = 'ABM de Registrar Estadia (check-in/check-out)'
 		OR AEFI.TL_Funcionalidad.Descripcion = 'Listado Estadistico'))
