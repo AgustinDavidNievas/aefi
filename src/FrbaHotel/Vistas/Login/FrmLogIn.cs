@@ -6,11 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using FrbaHotel.Servicios;
 
 namespace FrbaHotel.Login
 {
     public partial class FrmLogIn : Form
     {
+        SqlConnection conexion = BaseDeDatos.ObtenerConexion();
+    
         public FrmLogIn()
         {
             InitializeComponent();
@@ -18,7 +22,7 @@ namespace FrbaHotel.Login
 
         private void FrmLogIn_Load(object sender, EventArgs e)
         {
-
+            conexion.Open();
         }
 
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)

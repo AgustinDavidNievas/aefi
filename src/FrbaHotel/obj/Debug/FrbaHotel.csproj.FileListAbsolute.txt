@@ -15,3 +15,11 @@ C:\Users\Ivan M\Desktop\UTN\TP Hotel Frba 1.0 - 2C 2014\TP\trunk\src\FrbaHotel\b
 C:\Users\Ivan M\Desktop\UTN\TP Hotel Frba 1.0 - 2C 2014\TP\trunk\src\FrbaHotel\bin\Debug\FrbaHotel.pdb
 C:\Users\Ivan M\Desktop\UTN\TP Hotel Frba 1.0 - 2C 2014\TP\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.exe
 C:\Users\Ivan M\Desktop\UTN\TP Hotel Frba 1.0 - 2C 2014\TP\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.pdb
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\bin\Debug\FrbaHotel.exe
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\bin\Debug\FrbaHotel.pdb
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\ResolveAssemblyReference.cache
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.Login.FrmLogIn.resources
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.exe
+D:\Archivos de programa 2\Gestión De Datos\Tp Gestion De Datos\trunk\src\FrbaHotel\obj\Debug\FrbaHotel.pdb
