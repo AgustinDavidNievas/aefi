@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
+using FrbaHotel.Login;
 namespace FrbaHotel
 {
     static class Program
