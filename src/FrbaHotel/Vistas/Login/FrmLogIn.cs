@@ -30,5 +30,10 @@ namespace FrbaHotel.Login
         {
 
         }
+
+        private void lblElegirRol_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

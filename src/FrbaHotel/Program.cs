@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using FrbaHotel.Login;
+using FrbaHotel.Vistas;
+using FrbaHotel.ABM_de_Rol;
 namespace FrbaHotel
 {
     static class Program
@@ -15,7 +17,8 @@ namespace FrbaHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogIn());
+           // Application.Run(new FrmLogIn());
+            Application.Run(new Form1());
         }
     }
 }
