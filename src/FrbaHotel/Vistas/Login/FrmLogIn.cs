@@ -22,7 +22,8 @@ namespace FrbaHotel.Login
 
         private void FrmLogIn_Load(object sender, EventArgs e)
         {
-            conexion.Open();
+            SqlConnection conexion = BaseDeDatos.ObtenerConexion();
+
         }
 
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)

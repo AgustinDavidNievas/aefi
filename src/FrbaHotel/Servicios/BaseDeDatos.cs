@@ -19,7 +19,7 @@ namespace FrbaHotel.Servicios
 
         public static SqlConnection ObtenerConexion()
         {
-            String connString = "Server=localhost\\SQLEXPRESS2008; " + "Database=GD2C2014;User Id=gd;Password=gd2014";
+            String connString = "Server=localhost\\SQLSERVER2008; " + "Database=GD2C2014;User Id=gd;Password=gd2014";
             
             if (Conexion.State == ConnectionState.Closed)
             {
