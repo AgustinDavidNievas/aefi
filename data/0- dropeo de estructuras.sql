@@ -3,7 +3,7 @@
 /*Drop de las Foreign keys*/
 
 
-
+BEGIN TRANSACTION
 
 ALTER TABLE [AEFI].[TL_Usuario] DROP CONSTRAINT fk_Reserva_Usuario;
 /*ALTER TABLE [AEFI].[TL_Reserva] DROP CONSTRAINT fk_Regimen; */
@@ -19,7 +19,9 @@ ALTER TABLE [AEFI].[TL_Funcionalidad_Rol] DROP CONSTRAINT fk_Rol_Funcionalidad;
 ALTER TABLE [AEFI].[TL_Usuario_Por_Rol] DROP CONSTRAINT fk_Rol_Usuario;
 ALTER TABLE [AEFI].[TL_Usuario_Por_Rol] DROP CONSTRAINT fk_Usuario_Rol;
 
+COMMIT
 
+BEGIN TRANSACTION
 
 /* Drop de las Primary Keys*/
 ALTER TABLE [AEFI].[TL_Usuario] DROP CONSTRAINT pk_UsuarioID;
@@ -39,9 +41,9 @@ ALTER TABLE [AEFI].[TL_Hotel] DROP CONSTRAINT pk_HotelID;
 
 /*mismo problema documento y consumible no existe o no permiso*/
 
+COMMIT
 
-
-
+BEGIN TRANSACTION
 
 /*Drop de las Tablas*/
 DROP TABLE [AEFI].[TL_Funcionalidad_Rol];
@@ -61,7 +63,7 @@ DROP TABLE [AEFI].[TL_Hotel];
 
 Problema No existe o no permiso*/
 
-
+COMMIT
 
 DROP SCHEMA [AEFI];
 

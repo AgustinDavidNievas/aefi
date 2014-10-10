@@ -12,12 +12,18 @@ CREATE TABLE [AEFI].[TL_Usuario](
 	[Password] nvarchar (64) NOT NULL,
 	[Intentos_Fallidos] int DEFAULT 0,
 	[Pass_Temporal] bit DEFAULT 0,
+	[Habilitado] bit DEFAULT 1,
+	/*[Validar] bit DEFAULT 1,*/
 	[ID_Reserva] int,
 	CONSTRAINT pk_UsuarioID PRIMARY KEY (ID_Usuario),
-	
+
+);
+
+INSERT INTO AEFI.TL_Usuario(Username, Password) VALUES ('admin','w23e');
+/*temporal la contraseña para probar, dsp hay q encriptarla y esas cosas*/	
 
 
-	);
+
 
 CREATE TABLE [AEFI].[TL_Rol](
 	[ID_Rol] int IDENTITY (1,1),
@@ -30,7 +36,7 @@ CREATE TABLE [AEFI].[TL_Rol](
 INSERT INTO AEFI.TL_Rol (Descripcion) VALUES ('Guest');
 INSERT INTO AEFI.TL_Rol (Descripcion) VALUES ('Recepcionista');
 INSERT INTO AEFI.TL_Rol (Descripcion) VALUES ('Administrador');
-
+INSERT INTO AEFI.TL_Rol (Descripcion) VALUES ('AdministradorGeneral');
 
 
 CREATE TABLE [AEFI].[TL_Funcionalidad](
@@ -100,6 +106,9 @@ CREATE TABLE [AEFI].[TL_Usuario_Por_Rol](
 		[ID_Usuario] int NOT NULL,
 		CONSTRAINT pk_Usuario_RolID PRIMARY KEY (ID_Usuario_Rol)
 		);
+
+INSERT INTO [AEFI].[TL_Usuario_Por_Rol] (ID_Rol, ID_Usuario) VALUES ('1','1');
+
 		
 CREATE TABLE [AEFI].[TL_Reserva](
 
@@ -175,7 +184,6 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[Apellido] nvarchar(255),
 		[ID_Tipo_Documento] numeric(18,0),
 		[Mail] nvarchar(255) UNIQUE,
-		[Habilitado] bit DEFAULT 1,
 
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
 
