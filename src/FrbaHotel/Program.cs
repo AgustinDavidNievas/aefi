@@ -17,8 +17,8 @@ namespace FrbaHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmLogIn());
-            Application.Run(new FormElegirRol());
+            Application.Run(new FrmLogIn());
+            //Application.Run(new FormElegirRol());
 
     
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using FrbaHotel.Servicios;
+using FrbaHotel.Vistas.Login;
 
 namespace FrbaHotel.Login
 {
@@ -44,6 +45,13 @@ namespace FrbaHotel.Login
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void entrarBtn_Click(object sender, EventArgs e)
+        {
+            Form formElegirRol = new FormElegirRol();//por ahora esta asi, pero aca se le tiene que mandar el id_usuario
+            formElegirRol.Show();
+            this.Hide();
         }
     }
 }
