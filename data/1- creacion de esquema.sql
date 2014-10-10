@@ -238,9 +238,9 @@ ALTER TABLE [AEFI].[TL_Cliente] ADD CONSTRAINT fk_Usuario_Cliente FOREIGN KEY (I
 
 /*ALTER TABLE [AEFI].[TL_Cliente] ADD CONSTRAINT fk_Tipo_Documento FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento](ID_Tipo_Documento); */
 
-ALTER TABLE [AEFI].[TL_Usuario_Rol] ADD CONSTRAINT fk_Rol_Usuario FOREIGN KEY (ID_Rol) REFERENCES [AEFI].[TL_Rol](ID_Rol);
+ALTER TABLE [AEFI].[TL_Usuario_Por_Rol] ADD CONSTRAINT fk_Rol_Usuario FOREIGN KEY (ID_Rol) REFERENCES [AEFI].[TL_Rol](ID_Rol);
 
-ALTER TABLE [AEFI].[TL_Usuario_Rol] ADD CONSTRAINT fk_Usuario_Rol FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario](ID_Usuario);
+ALTER TABLE [AEFI].[TL_Usuario_Por_Rol] ADD CONSTRAINT fk_Usuario_Rol FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario](ID_Usuario);
 
 ALTER TABLE [AEFI].[TL_Funcionalidad_Rol] ADD CONSTRAINT fk_Rol_Funcionalidad FOREIGN KEY (ID_Rol) REFERENCES [AEFI].[TL_Rol](ID_Rol);
 
