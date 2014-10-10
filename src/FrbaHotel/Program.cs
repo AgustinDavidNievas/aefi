@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using FrbaHotel.Login;
+using FrbaHotel.Vistas.Login;
 
 namespace FrbaHotel
 {
@@ -16,8 +17,8 @@ namespace FrbaHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogIn());
-            
+            //Application.Run(new FrmLogIn());
+            Application.Run(new FormElegirRol());
 
     
         }
