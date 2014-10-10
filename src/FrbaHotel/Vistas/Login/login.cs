@@ -7,6 +7,6 @@ namespace FrbaHotel.Vistas.Login
 {
     class login
     {
-
+         /* Agus menea la carnaza por el canelon */ 
     }
 }

@@ -24,5 +24,10 @@ namespace FrbaHotel.ABM_de_Rol
         {
           SqlConnection conexion = BaseDeDatos.ObtenerConexion();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*Agus se la come, Lucas se la da :O */
+        }
     }
 }
