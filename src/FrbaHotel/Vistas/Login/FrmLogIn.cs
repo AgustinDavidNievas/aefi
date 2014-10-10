@@ -49,9 +49,18 @@ namespace FrbaHotel.Login
 
         private void entrarBtn_Click(object sender, EventArgs e)
         {
+            String consultaUsuario = "SELECT id_usuario, username, password, intentos_fallidos" +
+               "FROM AEFI.tl_usuario " +
+               "WHERE username = @username";
+
             Form formElegirRol = new FormElegirRol();//por ahora esta asi, pero aca se le tiene que mandar el id_usuario
             formElegirRol.Show();
             this.Hide();
+        }
+
+        private void txbUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
