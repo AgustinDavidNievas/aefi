@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
-using FrbaHotel.ABM_de_Rol;
+using FrbaHotel.Login;
 
 namespace FrbaHotel
 {
@@ -17,8 +16,8 @@ namespace FrbaHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new FrmLogIn());
-            Application.Run(new FormRol());
+            Application.Run(new FrmLogIn());
+            
 
     
         }

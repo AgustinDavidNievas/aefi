@@ -11,11 +11,11 @@ using FrbaHotel.Servicios;
 
 namespace FrbaHotel.Login
 {
-    public partial class frmLogIn : Form
+    public partial class FrmLogIn : Form
     {
         SqlConnection conexion = BaseDeDatos.ObtenerConexion();
     
-        public frmLogIn()
+        public FrmLogIn()
         {
             InitializeComponent();
         }
@@ -37,6 +37,11 @@ namespace FrbaHotel.Login
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
