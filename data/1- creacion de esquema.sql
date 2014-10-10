@@ -8,7 +8,7 @@ COMMIT
 BEGIN TRANSACTION
 CREATE TABLE [AEFI].[TL_Usuario](
 	[ID_Usuario] int IDENTITY (1,1),
-	[Username] nvarchar(255) NOT NULL,
+	[Username] nvarchar(255) UNIQUE NOT NULL,
 	[Password] nvarchar (64) NOT NULL,
 	[Intentos_Fallidos] int DEFAULT 0,
 	[Pass_Temporal] bit DEFAULT 0,
