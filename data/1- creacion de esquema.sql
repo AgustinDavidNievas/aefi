@@ -12,8 +12,6 @@ CREATE TABLE [AEFI].[TL_Usuario](
 	[Password] nvarchar (64) NOT NULL,
 	[Intentos_Fallidos] int DEFAULT 0,
 	[Pass_Temporal] bit DEFAULT 0,
-	[Activo] bit DEFAULT 1,
-	[Habilitado] bit DEFAULT 1, 
 	[ID_Reserva] int,
 	CONSTRAINT pk_UsuarioID PRIMARY KEY (ID_Usuario),
 	
@@ -176,7 +174,8 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[Nombre] nvarchar(255),
 		[Apellido] nvarchar(255),
 		[ID_Tipo_Documento] numeric(18,0),
-		[Mail] nvarchar(255),
+		[Mail] nvarchar(255) UNIQUE,
+		[Habilitado] bit DEFAULT 1,
 
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
 
