@@ -1,6 +1,6 @@
 ﻿namespace FrbaHotel.Login
 {
-    partial class FrmLogIn
+    partial class frmLogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,78 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblElegirRol = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txbUsuario = new System.Windows.Forms.TextBox();
+            this.lblContraseña = new System.Windows.Forms.Label();
+            this.txbContrasena = new System.Windows.Forms.TextBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.btnUsuarioNuevo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblElegirRol
+            // lblUsuario
             // 
-            this.lblElegirRol.AutoSize = true;
-            this.lblElegirRol.Location = new System.Drawing.Point(25, 52);
-            this.lblElegirRol.Name = "lblElegirRol";
-            this.lblElegirRol.Size = new System.Drawing.Size(43, 13);
-            this.lblElegirRol.TabIndex = 1;
-            this.lblElegirRol.Text = "Usuario";
-            this.lblElegirRol.Click += new System.EventHandler(this.lblElegirRol_Click);
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(25, 52);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "Usuario:";
+            this.lblUsuario.Click += new System.EventHandler(this.lblElegirRol_Click);
             // 
-            // textBox1
+            // txbUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 20);
-            this.textBox1.TabIndex = 2;
+            this.txbUsuario.Location = new System.Drawing.Point(93, 52);
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.Size = new System.Drawing.Size(166, 20);
+            this.txbUsuario.TabIndex = 2;
             // 
-            // label1
+            // lblContraseña
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Contraceña";
+            this.lblContraseña.AutoSize = true;
+            this.lblContraseña.Location = new System.Drawing.Point(25, 103);
+            this.lblContraseña.Name = "lblContraseña";
+            this.lblContraseña.Size = new System.Drawing.Size(64, 13);
+            this.lblContraseña.TabIndex = 3;
+            this.lblContraseña.Text = "Contraseña:";
             // 
-            // textBox2
+            // txbContrasena
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 20);
-            this.textBox2.TabIndex = 4;
+            this.txbContrasena.Location = new System.Drawing.Point(93, 103);
+            this.txbContrasena.Name = "txbContrasena";
+            this.txbContrasena.Size = new System.Drawing.Size(166, 20);
+            this.txbContrasena.TabIndex = 4;
             // 
-            // button1
+            // btnEntrar
             // 
-            this.button1.Location = new System.Drawing.Point(184, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Entrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEntrar.Location = new System.Drawing.Point(184, 141);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnUsuarioNuevo
             // 
-            this.button2.Location = new System.Drawing.Point(28, 141);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Usuario Nuevo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnUsuarioNuevo.Location = new System.Drawing.Point(28, 141);
+            this.btnUsuarioNuevo.Name = "btnUsuarioNuevo";
+            this.btnUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
+            this.btnUsuarioNuevo.TabIndex = 6;
+            this.btnUsuarioNuevo.Text = "Usuario Nuevo";
+            this.btnUsuarioNuevo.UseVisualStyleBackColor = true;
+            this.btnUsuarioNuevo.Click += new System.EventHandler(this.button2_Click);
             // 
-            // FrmLogIn
+            // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblElegirRol);
-            this.Name = "FrmLogIn";
+            this.Controls.Add(this.btnUsuarioNuevo);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.txbContrasena);
+            this.Controls.Add(this.lblContraseña);
+            this.Controls.Add(this.txbUsuario);
+            this.Controls.Add(this.lblUsuario);
+            this.Name = "frmLogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogIn";
             this.Load += new System.EventHandler(this.FrmLogIn_Load);
             this.ResumeLayout(false);
@@ -109,11 +110,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblElegirRol;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txbUsuario;
+        private System.Windows.Forms.Label lblContraseña;
+        private System.Windows.Forms.TextBox txbContrasena;
+        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Button btnUsuarioNuevo;
     }
 }
