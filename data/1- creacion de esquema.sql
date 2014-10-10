@@ -93,7 +93,7 @@ INSERT INTO AEFI.TL_Funcionalidad_Rol (ID_Rol, ID_Funcionalidad) (
 		OR AEFI.TL_Funcionalidad.Descripcion = 'Facturar Publicaciones'))
 );
 
-CREATE TABLE [AEFI].[TL_Usuario_Rol](
+CREATE TABLE [AEFI].[TL_Usuario_Por_Rol](
 
 		[ID_Usuario_Rol] int IDENTITY (1,1),
 		[ID_Rol] int NOT NULL,
