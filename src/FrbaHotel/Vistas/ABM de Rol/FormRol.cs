@@ -11,11 +11,11 @@ using FrbaHotel.Servicios;
 
 namespace FrbaHotel.ABM_de_Rol
 {
-    public partial class Form1 : Form //No me deja ponerle FormRol, se rompe el InitializeComponent u.u
+    public partial class FormRol : Form //No me deja ponerle FormRol, se rompe el InitializeComponent u.u
     {
         SqlConnection conexion = BaseDeDatos.ObtenerConexion();
 
-        public Form1()
+        public FormRol()
         {
             InitializeComponent();
         }
