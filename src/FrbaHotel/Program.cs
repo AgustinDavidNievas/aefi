@@ -10,11 +10,11 @@ namespace FrbaHotel
 {
     static class Program
     {
-        public static int idUsuario = 0;
+        public static int? idUsuario = 0;
         public static string usuario = "";
-        public static int codigoRol = 0;
-        public static string fecha = ConfigurationSettings.AppSettings["fecha"];
-        public static string conexion = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+        public static int? codigoRol = 0;
+        //public static string fecha = ConfigurationSettings.AppSettings["fecha"];
+        //public static string conexion = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
 
         /// <summary>
         /// The main entry point for the application.

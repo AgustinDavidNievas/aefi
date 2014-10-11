@@ -15,7 +15,7 @@ namespace FrbaHotel.Login
     public partial class FrmLogIn : Form
     {
         SqlConnection conexion = BaseDeDatos.ObtenerConexion();
-        int contador = 3;
+        int? contador = 3;
         string usuarioVerificar = null;
     
         public FrmLogIn()
