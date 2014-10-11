@@ -45,7 +45,7 @@ namespace FrbaHotel.Login
 
             try
             {
-                conexion.Open();
+                //conexion.Open();
                 String consulta = "SELECT ID_Rol " +
                                   "FROM AEFI.TL_Rol " +
                                   "WHERE Descripcion = @Descripcion " +
@@ -95,7 +95,7 @@ namespace FrbaHotel.Login
 
             try
             {
-                conexion.Open(); //me parece que esto esta de mas aca o esta bien aca y la BaseDeDatos lo hace de mas :P
+                //conexion.Open(); //me parece que esto esta de mas aca o esta bien aca y la BaseDeDatos lo hace de mas :P
                 SqlCommand comando = new SqlCommand(consultaUsuario, conexion);
                 comando.Parameters.Add(new SqlParameter("@usuario", txbUsuario.Text));
                 SqlDataReader reader = comando.ExecuteReader();
