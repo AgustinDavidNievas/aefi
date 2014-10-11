@@ -39,21 +39,59 @@ namespace FrbaHotel.Login
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void entrarBtn_Click(object sender, EventArgs e)
         {
-            String consultaUsuario = "SELECT id_usuario, username, password, intentos_fallidos" +
+            int rolSeleccionado;
+
+            try
+            {
+                conexion.Open();
+                String consulta = "SELECT ID_Rol " +
+                                  "FROM AEFI.TL_Rol " +
+                                  "WHERE Descripcion = @Descripcion " +
+                                  "AND Activo = 1";
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.Add(new SqlParameter("@Descripcion", cxbRol.SelectedItem.ToString()));
+                SqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+                rolSeleccionado = Convert.ToInt32(reader["ID_Rol"]);
+                reader.Close();
+
+                // cargo el rol en la variable global del sistema
+                Program.codigoRol = rolSeleccionado;
+
+                MessageBox.Show("Bienvenido al sistema", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //new de la ventana que se tiene que abrir
+                this.Hide();
+                //ShowDialog()
+                this.Close();
+            }
+            catch (SqlException exc)
+            {
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        private void txbUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void validarBtn_Click(object sender, EventArgs e)
+        {
+            String consultaUsuario = "SELECT ID_Usuario, Username, Password, Intentos_Fallidos" +
                                      "FROM AEFI.TL_Usuario " +
-                                     "WHERE username = @username";
+                                     "WHERE Username = @Username";
+
+            String consultaRoles = "SELECT Descripcion " +
+                                    "FROM AEFI.TL_Rol r " +
+                                    "JOIN AEFI.TL_Uuario_Por_Rol x ON (x.ID_Rol = r.ID_Rol) " +
+                                    "JOIN AEFI.TL_Usuario u ON (u.ID_Usuario = x.ID_usuario) " +
+                                    "WHERE Username = @Username AND r.Activo = 1";
 
             try
             {
@@ -109,14 +147,36 @@ namespace FrbaHotel.Login
                     // se cargan las variables globales del sistema
                     Program.idUsuario = idUsuario;
                     Program.usuario = usuario;
+
+                    cxbRol.Enabled = true;
+                    entrarBtn.Enabled = true;
+
+                    // cargo los roles del usuario logeado que puede elegir
+                    comando = new SqlCommand(consultaRoles, conexion);
+                    comando.Parameters.Add(new SqlParameter("@usuario", usuario));
+                    reader = comando.ExecuteReader();
+                    cxbRol.Items.Clear();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            cxbRol.Items.Add(reader["Descripcion"].ToString());
+                        }
+                        reader.Close();
+                        cxbRol.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        reader.Close();
+                        MessageBox.Show("No tiene roles asignados", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
 
-                MessageBox.Show("Eliga un Rol", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form formElegirRol = new FormElegirRol();
-                this.Hide();
-                formElegirRol.ShowDialog(); //o Show()?
-                this.Close();
-                
+
+
+
             }
             catch (Excepciones exc)
             {
@@ -145,13 +205,6 @@ namespace FrbaHotel.Login
             {
                 conexion.Close();
             }
-            
-           
-        }
-
-        private void txbUsuario_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

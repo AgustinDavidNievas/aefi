@@ -35,6 +35,9 @@
             this.entrarBtn = new System.Windows.Forms.Button();
             this.invitadoBtn = new System.Windows.Forms.Button();
             this.salirBtn = new System.Windows.Forms.Button();
+            this.cxbRol = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.validarBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -73,7 +76,7 @@
             // 
             // entrarBtn
             // 
-            this.entrarBtn.Location = new System.Drawing.Point(28, 152);
+            this.entrarBtn.Location = new System.Drawing.Point(28, 196);
             this.entrarBtn.Name = "entrarBtn";
             this.entrarBtn.Size = new System.Drawing.Size(95, 34);
             this.entrarBtn.TabIndex = 5;
@@ -83,28 +86,57 @@
             // 
             // invitadoBtn
             // 
-            this.invitadoBtn.Location = new System.Drawing.Point(169, 152);
+            this.invitadoBtn.Location = new System.Drawing.Point(160, 196);
             this.invitadoBtn.Name = "invitadoBtn";
-            this.invitadoBtn.Size = new System.Drawing.Size(103, 34);
+            this.invitadoBtn.Size = new System.Drawing.Size(99, 34);
             this.invitadoBtn.TabIndex = 6;
             this.invitadoBtn.Text = "Entrar Como Invitado";
             this.invitadoBtn.UseVisualStyleBackColor = true;
             // 
             // salirBtn
             // 
-            this.salirBtn.Location = new System.Drawing.Point(93, 213);
+            this.salirBtn.Location = new System.Drawing.Point(93, 236);
             this.salirBtn.Name = "salirBtn";
             this.salirBtn.Size = new System.Drawing.Size(116, 36);
             this.salirBtn.TabIndex = 7;
             this.salirBtn.Text = "Salir";
             this.salirBtn.UseVisualStyleBackColor = true;
-            this.salirBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cxbRol
+            // 
+            this.cxbRol.FormattingEnabled = true;
+            this.cxbRol.Location = new System.Drawing.Point(93, 169);
+            this.cxbRol.Name = "cxbRol";
+            this.cxbRol.Size = new System.Drawing.Size(166, 21);
+            this.cxbRol.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Rol";
+            // 
+            // validarBtn
+            // 
+            this.validarBtn.Location = new System.Drawing.Point(28, 129);
+            this.validarBtn.Name = "validarBtn";
+            this.validarBtn.Size = new System.Drawing.Size(231, 34);
+            this.validarBtn.TabIndex = 10;
+            this.validarBtn.Text = "Validar";
+            this.validarBtn.UseVisualStyleBackColor = true;
+            this.validarBtn.Click += new System.EventHandler(this.validarBtn_Click);
             // 
             // FrmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(294, 300);
+            this.Controls.Add(this.validarBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cxbRol);
             this.Controls.Add(this.salirBtn);
             this.Controls.Add(this.invitadoBtn);
             this.Controls.Add(this.entrarBtn);
@@ -130,5 +162,8 @@
         private System.Windows.Forms.Button entrarBtn;
         private System.Windows.Forms.Button invitadoBtn;
         private System.Windows.Forms.Button salirBtn;
+        private System.Windows.Forms.ComboBox cxbRol;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button validarBtn;
     }
 }
