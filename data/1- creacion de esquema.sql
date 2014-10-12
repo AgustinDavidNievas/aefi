@@ -26,7 +26,7 @@ INSERT INTO [AEFI].[TL_Usuario](Username, Password) VALUES ('admin','E6B87050BFC
 
 CREATE TABLE [AEFI].[TL_Rol](
 	[ID_Rol] int IDENTITY (1,1),
-	[Descripcion] nvarchar (255) NOT NULL,
+	[Descripcion] nvarchar (255) UNIQUE NOT NULL,
 	[Activo] bit NOT NULL DEFAULT(1),
 	CONSTRAINT pk_RolID PRIMARY KEY (ID_Rol)
 
