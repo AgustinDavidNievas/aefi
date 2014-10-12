@@ -10,7 +10,6 @@ CREATE TABLE [AEFI].[TL_Usuario](
 	[ID_Usuario] int IDENTITY (1,1),
 	[Username] nvarchar(255) UNIQUE NOT NULL,
 	[Password] nvarchar (64) NOT NULL,
-	[Intentos_Fallidos] int DEFAULT 0,
 	[Pass_Temporal] bit DEFAULT 0,
 	[Habilitado] bit DEFAULT 1,
 	/*[Validar] bit DEFAULT 1,*/
@@ -19,7 +18,7 @@ CREATE TABLE [AEFI].[TL_Usuario](
 
 );
 
-INSERT INTO AEFI.TL_Usuario(Username, Password) VALUES ('admin','E6B87050BFCB8143FCB8DB0170A4DC9ED00D904DDD3E2A4AD1B1E8DC0FDC9BE7');
+INSERT INTO [AEFI].[TL_Usuario](Username, Password) VALUES ('admin','E6B87050BFCB8143FCB8DB0170A4DC9ED00D904DDD3E2A4AD1B1E8DC0FDC9BE7');
 /*temporal la contraseña para probar, dsp hay q encriptarla y esas cosas*/	
 
 
@@ -125,7 +124,6 @@ CREATE TABLE [AEFI].[TL_Reserva](
 		);
 
 		
-/* Falta hacer la tabla de Regimen */
 
 		
 CREATE TABLE [AEFI].[TL_Habitacion](
@@ -135,6 +133,8 @@ CREATE TABLE [AEFI].[TL_Habitacion](
 		[Piso] numeric (18,0),
 		[Vista] nvarchar(50),
 		[Tipo_Habitacion] nvarchar(255),
+		[Tipo_Codigo] numeric(18,0),
+		[Tipo_Porcentual] numeric(18,0),
 		[Tipo_Comodidades] nvarchar(255),
 		[Cantidad_Huespedes_Total] int,
 		CONSTRAINT pk_HabitacionID PRIMARY KEY (ID_Habitacion)
@@ -157,6 +157,7 @@ CREATE TABLE [AEFI].[TL_Hotel](
 		[Telefono] int,
 		[Calle] nvarchar(255),
 		[Cantidad_Estrellas] int,
+		[Recarga_Estrellas] int,
 		[Ciudad] nvarchar(255),
 		[Pais] nvarchar(255),
 		[ID_Tipo_Documento] int,
@@ -224,6 +225,8 @@ CREATE TABLE [AEFI].[TL_Tipo_Documento](
 		);
 		/* Ya existe en la base de datos? no permite Dropearla, hay q borrarla manualmente (? */
 	*/
+	
+	/* Falta hacer la tabla de Regimen */
 
 COMMIT
 
