@@ -153,6 +153,7 @@ CREATE TABLE [AEFI].[TL_Cancelacion](
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] int IDENTITY,
 		[ID_Usuario] int,
+		[Nombre] nvarchar(255),
 		[Mail] nvarchar(60),
 		[Telefono] int,
 		[Calle] nvarchar(255),
