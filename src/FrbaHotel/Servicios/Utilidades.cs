@@ -2,12 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Security.Cryptography;
 
 namespace FrbaHotel.Servicios
 {
     class Utilidades
     {
+        /*
+           public static SqlConnection conectar()
+        {
+            string connectionString = Program.conexion;
+            return new SqlConnection(connectionString);
+        }
+
+        public static string agregarApostrofos(string palabra)
+        {
+            return "'" + palabra + "'";
+        }
+
+        public static string agregarPorcentajes(string palabra)
+        {
+            return "%" + palabra + "%";
+        }
+         */
+       
+
         public static string cifrar256(string texto)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(texto);

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using FrbaHotel.Login;
 using FrbaHotel.Vistas.Login;
 using System.Configuration;
+using FrbaHotel.Menu;
 
 namespace FrbaHotel
 {
@@ -24,10 +25,11 @@ namespace FrbaHotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogIn());
+            //Application.Run(new FrmLogIn());
             //Application.Run(new FormElegirRol());
+            Application.Run(new FormMenu());
+            
 
-    
         }
     }
 }
