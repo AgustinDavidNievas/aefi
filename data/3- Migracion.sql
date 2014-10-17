@@ -39,7 +39,15 @@ FROM gd_esquema.Maestra m
 
 COMMIT
 
+/*
 INSERT INTO [AEFI].[TL_Cliente] (ID_Usuario, Nombre, Apellido, Mail, Nacionalidad,Fecha_Nacimiento, Direccion)
 SELECT u.ID_Usuario, m.Cliente_Nombre, m.Cliente_Apellido, m.Cliente_Mail, m.Cliente_Nacionalidad, m.Cliente_Fecha_Nac, m.Cliente_Dom_Calle+/*' '+m.Cliente_Nro_Calle+' '+m.Cliente_Piso+*/' '+m.Cliente_Depto
 FROM gd_esquema.Maestra m, [AEFI].[TL_Usuario] u
 WHERE m.Cliente_Nombre+'_'+m.Cliente_Apellido = u.Username
+*/
+
+INSERT INTO [AEFI].[TL_Cliente] (ID_Tipo_Document, Nro_Documento, Nombre, Apellido, Mail, Fecha_Nacimiento, Direccion, ID_Usuario)
+SELECT DISTINCT 2, m.Cliente_Pasaporte_Nro, m.Cliente_Nombre, m.Cliente_Apellido, m.Cliente_Mail, m.Cliente_Fecha_Nac, m.Cliente_Dom_Calle+/*' '+m.Cliente_Nro_Calle+' '+m.Cliente_Piso+*/' '+m.Cliente_Depto, u.ID_Usuario
+FROM gd_esquema.Maestra m 
+JOIN AEFI.TL_Usuario u ON (m.Cli_Nombre + '_' + m.Cli_Apellido = u.Username)
+WHERE m.Cliente_Pasaporte_Nro, m.Cliente_Nombre, m.Cliente_Apellido IS NOT NULL;

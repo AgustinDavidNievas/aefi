@@ -16,28 +16,27 @@ CREATE TABLE [AEFI].[TL_Usuario](
 
 
 CREATE TABLE [AEFI].[TL_Tipo_Documento](
-		[ID_Tipo_Documento] int IDENTITY (1,1) PRIMARY KEY,
+		[ID_Tipo_Documento] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
 		[Descripcion] NVARCHAR(40)
 );
 
-
-		
+	
 CREATE TABLE [AEFI].[TL_Cliente](
 	
 		[ID_Cliente] NUMERIC (18,0) IDENTITY (1,1) PRIMARY KEY,
-		[ID_Usuario] NUMERIC (18,0),
-		[Nombre] NVARCHAR(255),
-		[Apellido] NVARCHAR(255),
-		[ID_Tipo_Documento] NUMERIC(18,0),
+		[ID_Usuario] NUMERIC (18,0) NOT NULL,
+		[Nombre] NVARCHAR(255) NOT NULL,
+		[Apellido] NVARCHAR(255) NOT NULL,
+		[ID_Tipo_Documento] NUMERIC(18,0) NOT NULL,
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Direccion] NVARCHAR (255),
-		[Nro_Documento] NVARCHAR(255) UNIQUE,
+		[Nro_Documento] NVARCHAR(255) UNIQUE NOT NULL,
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
-		[Fecha_Nacimiento] datetime,
+		[Fecha_Nacimiento] datetime NOT NULL,
 		[Nacionalidad] NVARCHAR(255),
-		
+	
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
-		FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento]
+		FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento] (ID_Tipo_Documento)
 		);
 	
 
