@@ -70,12 +70,10 @@ CREATE TABLE [AEFI].[TL_Hotel](
 		[Recarga_Estrellas] int,
 		[Ciudad] nvarchar(255),
 		[Pais] nvarchar(255),
-		[ID_Tipo_Documento] int,
 		[Fecha_Creacion] datetime,
 		[Nro_Calle] numeric(18,0),
 		[Recarga_Estrella] int,
 		[Primer_Ingreso] bit DEFAULT 1, /*1 primer ingreso*/
-		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
 );
 		
 CREATE TABLE [AEFI].[TL_Habitacion](
