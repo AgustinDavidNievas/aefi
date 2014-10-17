@@ -24,7 +24,6 @@ CREATE TABLE [AEFI].[TL_Tipo_Documento](
 CREATE TABLE [AEFI].[TL_Cliente](
 	
 		[ID_Cliente] NUMERIC (18,0) IDENTITY (1,1) PRIMARY KEY,
-		[ID_Usuario] NUMERIC (18,0) NOT NULL,
 		[Nombre] NVARCHAR(255) NOT NULL,
 		[Apellido] NVARCHAR(255) NOT NULL,
 		[ID_Tipo_Documento] NUMERIC(18,0) NOT NULL,
@@ -35,7 +34,6 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[Fecha_Nacimiento] datetime NOT NULL,
 		[Nacionalidad] NVARCHAR(255),
 	
-		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
 		FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento] (ID_Tipo_Documento)
 		);
 	
@@ -65,7 +63,6 @@ CREATE TABLE [AEFI].[TL_Regimen] (
 
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] int IDENTITY PRIMARY KEY,
-		[ID_Usuario] NUMERIC (18,0),
 		[Mail] nvarchar(60),
 		[Telefono] int,
 		[Calle] nvarchar(255),
@@ -76,6 +73,8 @@ CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Tipo_Documento] int,
 		[Fecha_Creacion] datetime,
 		[Nro_Calle] numeric(18,0),
+		[Recarga_Estrella] int,
+		[Primer_Ingreso] bit DEFAULT 1, /*1 primer ingreso*/
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
 );
 		
