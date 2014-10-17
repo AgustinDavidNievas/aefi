@@ -5,7 +5,7 @@ GO
 
 
 CREATE TABLE [AEFI].[TL_Usuario](
-	[ID_Usuario] int IDENTITY (1,1) PRIMARY KEY,
+	[ID_Usuario] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
 	[Username] NVARCHAR(255) NOT NULL, /*UNIQUE: ESTO LO VAMOS A TENER QUE VERIFICAR EN EL PROGRAMA PARA NO PERDER DATOS */
 	[Password] NVARCHAR(64) NOT NULL,
 	[Pass_Temporal] bit DEFAULT 1, /*1 VERDADERO, 0 FALSO */
@@ -24,8 +24,8 @@ CREATE TABLE [AEFI].[TL_Tipo_Documento](
 		
 CREATE TABLE [AEFI].[TL_Cliente](
 	
-		[ID_Cliente] int IDENTITY (1,1) PRIMARY KEY,
-		[ID_Usuario] int,
+		[ID_Cliente] NUMERIC (18,0) IDENTITY (1,1) PRIMARY KEY,
+		[ID_Usuario] NUMERIC (18,0),
 		[Nombre] NVARCHAR(255),
 		[Apellido] NVARCHAR(255),
 		[ID_Tipo_Documento] NUMERIC(18,0),
@@ -66,7 +66,7 @@ CREATE TABLE [AEFI].[TL_Regimen] (
 
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] int IDENTITY PRIMARY KEY,
-		[ID_Usuario] int,
+		[ID_Usuario] NUMERIC (18,0),
 		[Mail] nvarchar(60),
 		[Telefono] int,
 		[Calle] nvarchar(255),
@@ -105,7 +105,7 @@ CREATE TABLE [AEFI].[TL_Reserva](
 		[Cantidad_Noches] NUMERIC(18,0), 
 		[ID_Regimen] int NOT NULL,
 		[ID_Habitacion] int NOT NULL,
-		[ID_Cliente] int,
+		[ID_Cliente] NUMERIC(18,0),
 		FOREIGN KEY (ID_Cliente) REFERENCES [AEFI].[TL_Cliente] (ID_Cliente),
 		FOREIGN KEY (ID_Habitacion) REFERENCES [AEFI].[TL_Habitacion] (ID_Habitacion),
 		FOREIGN KEY (ID_Regimen) REFERENCES [AEFI].[TL_Regimen] (ID_Regimen)	
@@ -120,7 +120,7 @@ CREATE TABLE [AEFI].[TL_Cancelacion](
 		[Motivo] nvarchar(255),
 		[ID_Reserva] int,
 		[Fecha] datetime,
-		[ID_Usuario] int,		
+		[ID_Usuario] NUMERIC(18,0),		
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario), /*Usuario que hizo la cancelación*/
 		FOREIGN KEY (ID_Reserva) REFERENCES [AEFI].[TL_Reserva] (ID_Reserva)
 );
@@ -158,7 +158,7 @@ CREATE TABLE [AEFI].[TL_Factura](
 		[Fecha] datetime,
 		[Total] int,
 		[ID_FormaDePago] int,
-		[ID_Cliente] int,
+		[ID_Cliente] NUMERIC(18,0),
 		FOREIGN KEY (ID_FormaDePago) REFERENCES [AEFI].[TL_FormaDePago] (ID_FormaDePago),
 		FOREIGN KEY (ID_Cliente) REFERENCES [AEFI].[TL_Cliente] (ID_Cliente)
 		
@@ -166,7 +166,7 @@ CREATE TABLE [AEFI].[TL_Factura](
 
 CREATE TABLE [AEFI].[TL_Registro_Pago](
 		[ID_Factura] int,
-		[ID_Cliente] int,
+		[ID_Cliente] NUMERIC(18,0),
 		[Fecha] DATETIME,
 		PRIMARY KEY (ID_Factura, ID_Cliente),
 		FOREIGN KEY (ID_Factura) REFERENCES [AEFI].[TL_Factura] (ID_Factura),
@@ -187,7 +187,7 @@ CREATE TABLE [AEFI].[TL_Funcionalidad_Rol] (
 CREATE TABLE [AEFI].[TL_Usuario_Por_Rol](
 
 		[ID_Rol] int,
-		[ID_Usuario] int,
+		[ID_Usuario] NUMERIC(18,0),
 		PRIMARY KEY (ID_Usuario, ID_Rol),
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario),
 		FOREIGN KEY (ID_Rol) REFERENCES [AEFI].[TL_Rol] (Id_Rol)
