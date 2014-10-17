@@ -5,7 +5,7 @@ GO
 
 
 CREATE TABLE [AEFI].[TL_Usuario](
-	[ID_Usuario] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
+	[ID_Usuario] int IDENTITY (1,1) PRIMARY KEY,
 	[Username] NVARCHAR(255) NOT NULL, /*UNIQUE: ESTO LO VAMOS A TENER QUE VERIFICAR EN EL PROGRAMA PARA NO PERDER DATOS */
 	[Password] NVARCHAR(64) NOT NULL,
 	[Pass_Temporal] bit DEFAULT 1, /*1 VERDADERO, 0 FALSO */
@@ -15,21 +15,29 @@ CREATE TABLE [AEFI].[TL_Usuario](
 );
 
 
+CREATE TABLE [AEFI].[TL_Tipo_Documento](
+		[ID_Tipo_Documento] int IDENTITY (1,1) PRIMARY KEY,
+		[Descripcion] NVARCHAR(40)
+);
+
+
 		
 CREATE TABLE [AEFI].[TL_Cliente](
 	
 		[ID_Cliente] int IDENTITY (1,1) PRIMARY KEY,
-		[ID_Usuario] NUMERIC (18,0),
+		[ID_Usuario] int,
 		[Nombre] NVARCHAR(255),
 		[Apellido] NVARCHAR(255),
 		[ID_Tipo_Documento] NUMERIC(18,0),
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Direccion] NVARCHAR (255),
+		[Nro_Documento] NVARCHAR(255)
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
 		[Fecha_Nacimiento] datetime,
 		[Nacionalidad] NVARCHAR(255),
 		
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
+		FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento]
 		);
 	
 
@@ -58,7 +66,7 @@ CREATE TABLE [AEFI].[TL_Regimen] (
 
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] int IDENTITY PRIMARY KEY,
-		[ID_Usuario] NUMERIC(18,0),
+		[ID_Usuario] int,
 		[Mail] nvarchar(60),
 		[Telefono] int,
 		[Calle] nvarchar(255),
@@ -112,7 +120,7 @@ CREATE TABLE [AEFI].[TL_Cancelacion](
 		[Motivo] nvarchar(255),
 		[ID_Reserva] int,
 		[Fecha] datetime,
-		[ID_Usuario] NUMERIC(18,0),		
+		[ID_Usuario] int,		
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario), /*Usuario que hizo la cancelación*/
 		FOREIGN KEY (ID_Reserva) REFERENCES [AEFI].[TL_Reserva] (ID_Reserva)
 );
@@ -156,12 +164,6 @@ CREATE TABLE [AEFI].[TL_Factura](
 		
 );
 
-CREATE TABLE [AEFI].[TL_Tipo_Documento](
-		[ID_Tipo_Documento] int IDENTITY (1,1) PRIMARY KEY,
-		[Descripcion] NVARCHAR(40)
-);
-
-
 CREATE TABLE [AEFI].[TL_Registro_Pago](
 		[ID_Factura] int,
 		[ID_Cliente] int,
@@ -185,7 +187,7 @@ CREATE TABLE [AEFI].[TL_Funcionalidad_Rol] (
 CREATE TABLE [AEFI].[TL_Usuario_Por_Rol](
 
 		[ID_Rol] int,
-		[ID_Usuario] NUMERIC(18,0),
+		[ID_Usuario] int,
 		PRIMARY KEY (ID_Usuario, ID_Rol),
 		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario),
 		FOREIGN KEY (ID_Rol) REFERENCES [AEFI].[TL_Rol] (Id_Rol)
