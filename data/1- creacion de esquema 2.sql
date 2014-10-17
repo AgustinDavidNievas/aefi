@@ -31,7 +31,7 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[ID_Tipo_Documento] NUMERIC(18,0),
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Direccion] NVARCHAR (255),
-		[Nro_Documento] NVARCHAR(255)
+		[Nro_Documento] NVARCHAR(255) UNIQUE,
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
 		[Fecha_Nacimiento] datetime,
 		[Nacionalidad] NVARCHAR(255),
