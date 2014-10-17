@@ -1,9 +1,10 @@
 BEGIN TRANSACTION
 
 INSERT INTO [AEFI].[TL_Usuario](username, password)
-SELECT DISTINCT m.Cliente_Nombre + '_' + m.Cliente_Apellido, '03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4'
+SELECT m.Cliente_Nombre + '_' + m.Cliente_Apellido, '03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4' /*Borre el DISTINCT para no perder registros */
 FROM gd_esquema.Maestra m
 WHERE Cliente_Nombre IS NOT NULL;
+
 
 INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle)
 SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle
@@ -37,3 +38,8 @@ FROM gd_esquema.Maestra m
 
 
 COMMIT
+
+INSERT INTO [AEFI].[TL_Cliente] (ID_Usuario, Nombre, Apellido, Mail, Nacionalidad,Fecha_Nacimiento, Direccion)
+SELECT u.ID_Usuario, m.Cliente_Nombre, m.Cliente_Apellido, m.Cliente_Mail, m.Cliente_Nacionalidad, m.Cliente_Fecha_Nac, m.Cliente_Dom_Calle+/*' '+m.Cliente_Nro_Calle+' '+m.Cliente_Piso+*/' '+m.Cliente_Depto
+FROM gd_esquema.Maestra m, [AEFI].[TL_Usuario] u
+WHERE m.Cliente_Nombre+'_'+m.Cliente_Apellido = u.Username
