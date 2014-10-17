@@ -29,7 +29,7 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[ID_Tipo_Documento] NUMERIC(18,0) NOT NULL,
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Direccion] NVARCHAR (255),
-		[Nro_Documento] NVARCHAR(255) UNIQUE NOT NULL,
+		[Nro_Documento] NVARCHAR(255) NOT NULL,
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
 		[Fecha_Nacimiento] datetime NOT NULL,
 		[Nacionalidad] NVARCHAR(255),
@@ -57,7 +57,7 @@ CREATE TABLE [AEFI].[TL_Funcionalidad](
 CREATE TABLE [AEFI].[TL_Regimen] (
 		[ID_Regimen] int IDENTITY (1,1) PRIMARY KEY,
 		[Descripcion] NVARCHAR(255),
-		[Precion_Base] int,
+		[Precio_Base] int,
 		[Estado] int DEFAULT 1 /*1 activo 0 no activo */
 );		
 
@@ -98,6 +98,8 @@ CREATE TABLE [AEFI].[TL_Reserva](
 		[Fecha_Desde] datetime,
 		[Fecha_Hasta] datetime,
 		[Cantidad_Huespedes] int,
+		[Codigo_Reserva] int,
+		[Precio_Base] int,
 		[Cantidad_Noches] NUMERIC(18,0), 
 		[ID_Regimen] int NOT NULL,
 		[ID_Habitacion] int NOT NULL,
