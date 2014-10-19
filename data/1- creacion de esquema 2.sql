@@ -15,26 +15,21 @@ CREATE TABLE [AEFI].[TL_Usuario](
 );
 
 
-CREATE TABLE [AEFI].[TL_Tipo_Documento](
-		[ID_Tipo_Documento] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
-		[Descripcion] NVARCHAR(40)
-);
-
-	
+		
 CREATE TABLE [AEFI].[TL_Cliente](
 	
-		[ID_Cliente] NUMERIC (18,0) IDENTITY (1,1) PRIMARY KEY,
-		[Nombre] NVARCHAR(255) NOT NULL,
-		[Apellido] NVARCHAR(255) NOT NULL,
-		[ID_Tipo_Documento] NUMERIC(18,0) NOT NULL,
+		[ID_Cliente] int IDENTITY (1,1) PRIMARY KEY,
+		[ID_Usuario] NUMERIC (18,0) NOT NULL,
+		[Nombre] NVARCHAR(255),
+		[Apellido] NVARCHAR(255),
+		[ID_Tipo_Documento] NUMERIC(18,0),
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Direccion] NVARCHAR (255),
-		[Nro_Documento] NVARCHAR(255) NOT NULL,
 /* TENEMOS QUE VER SI "TELEFONO Y DIRECCION" VAN EN LA TABLA*/
-		[Fecha_Nacimiento] datetime NOT NULL,
+		[Fecha_Nacimiento] datetime,
 		[Nacionalidad] NVARCHAR(255),
-	
-		FOREIGN KEY (ID_Tipo_Documento) REFERENCES [AEFI].[TL_Tipo_Documento] (ID_Tipo_Documento)
+		
+		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
 		);
 	
 
@@ -57,12 +52,13 @@ CREATE TABLE [AEFI].[TL_Funcionalidad](
 CREATE TABLE [AEFI].[TL_Regimen] (
 		[ID_Regimen] int IDENTITY (1,1) PRIMARY KEY,
 		[Descripcion] NVARCHAR(255),
-		[Precio_Base] int,
+		[Precion_Base] int,
 		[Estado] int DEFAULT 1 /*1 activo 0 no activo */
 );		
 
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] int IDENTITY PRIMARY KEY,
+		[ID_Usuario] NUMERIC(18,0),
 		[Mail] nvarchar(60),
 		[Telefono] int,
 		[Calle] nvarchar(255),
@@ -70,10 +66,10 @@ CREATE TABLE [AEFI].[TL_Hotel](
 		[Recarga_Estrellas] int,
 		[Ciudad] nvarchar(255),
 		[Pais] nvarchar(255),
+		[ID_Tipo_Documento] int,
 		[Fecha_Creacion] datetime,
 		[Nro_Calle] numeric(18,0),
-		[Recarga_Estrella] int,
-		[Primer_Ingreso] bit DEFAULT 1, /*1 primer ingreso*/
+		FOREIGN KEY (ID_Usuario) REFERENCES [AEFI].[TL_Usuario] (ID_Usuario)
 );
 		
 CREATE TABLE [AEFI].[TL_Habitacion](
@@ -98,12 +94,10 @@ CREATE TABLE [AEFI].[TL_Reserva](
 		[Fecha_Desde] datetime,
 		[Fecha_Hasta] datetime,
 		[Cantidad_Huespedes] int,
-		[Codigo_Reserva] int,
-		[Precio_Base] int,
 		[Cantidad_Noches] NUMERIC(18,0), 
 		[ID_Regimen] int NOT NULL,
 		[ID_Habitacion] int NOT NULL,
-		[ID_Cliente] NUMERIC(18,0),
+		[ID_Cliente] int,
 		FOREIGN KEY (ID_Cliente) REFERENCES [AEFI].[TL_Cliente] (ID_Cliente),
 		FOREIGN KEY (ID_Habitacion) REFERENCES [AEFI].[TL_Habitacion] (ID_Habitacion),
 		FOREIGN KEY (ID_Regimen) REFERENCES [AEFI].[TL_Regimen] (ID_Regimen)	
@@ -156,15 +150,21 @@ CREATE TABLE [AEFI].[TL_Factura](
 		[Fecha] datetime,
 		[Total] int,
 		[ID_FormaDePago] int,
-		[ID_Cliente] NUMERIC(18,0),
+		[ID_Cliente] int,
 		FOREIGN KEY (ID_FormaDePago) REFERENCES [AEFI].[TL_FormaDePago] (ID_FormaDePago),
 		FOREIGN KEY (ID_Cliente) REFERENCES [AEFI].[TL_Cliente] (ID_Cliente)
 		
 );
 
+CREATE TABLE [AEFI].[TL_Tipo_Documento](
+		[ID_Tipo_Documento] int IDENTITY (1,1) PRIMARY KEY,
+		[Descripcion] NVARCHAR(40)
+);
+
+
 CREATE TABLE [AEFI].[TL_Registro_Pago](
 		[ID_Factura] int,
-		[ID_Cliente] NUMERIC(18,0),
+		[ID_Cliente] int,
 		[Fecha] DATETIME,
 		PRIMARY KEY (ID_Factura, ID_Cliente),
 		FOREIGN KEY (ID_Factura) REFERENCES [AEFI].[TL_Factura] (ID_Factura),

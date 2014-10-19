@@ -63,6 +63,7 @@
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnDesabilitar
             // 
@@ -189,6 +190,7 @@
             this.Name = "FormListaDeHoteles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Hoteles";
+            this.Load += new System.EventHandler(this.FormListaDeHoteles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoteles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

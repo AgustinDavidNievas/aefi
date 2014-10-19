@@ -1,26 +1,28 @@
 BEGIN TRANSACTION
 
-INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle, Recarga_Estrella)
-SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle, m.Hotel_Recarga_Estrella
+INSERT INTO [AEFI].[TL_Usuario](username, password)
+SELECT m.Cliente_Nombre + '_' + m.Cliente_Apellido, '03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4' /*Borre el DISTINCT para no perder registros */
 FROM gd_esquema.Maestra m
-/*Falta  join de tipo regimenes*/
+WHERE Cliente_Nombre IS NOT NULL;
 
+
+INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle)
+SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle
+FROM gd_esquema.Maestra m
+/*FALTA AGREGARLE LA RECARGA DE ESTRELLAS */
 
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
 SELECT DISTINCT m.Habitacion_Numero, m.Habitacion_Piso, m.Habitacion_Frente, m.Habitacion_Tipo_Descripcion, m.Habitacion_Tipo_Codigo, m.Habitacion_Tipo_Porcentual
 FROM gd_esquema.Maestra m
 /*Falta ver que seria Tipo_Habitacion */
 
-INSERT INTO [AEFI].[TL_Regimen](Descripcion, Precio_Base)
-SELECT DISTINCT m.Regimen_Descripcion, m.Regimen_Precio
-FROM gd_esquema.Maestra m
 
-
-INSERT INTO [AEFI].[TL_Reserva] (Fecha_Desde, Codigo_Reserva, Cantidad_Noches, ID_Habitacion, ID_Regimen)
-SELECT DISTINCT m.Reserva_Fecha_Inicio, m.Reserva_Codigo, m.Reserva_Cant_Noches, h.ID_Habitacion, r.ID_Regimen
+/*INSERT INTO [AEFI].[TL_Reserva] (Fecha_Desde, Codigo_Reserva, Cantidad_Noches, ID_Habitacion)
+SELECT DISTINCT m.Reserva_Fecha_Inicio, m.Reserva_Codigo, m.Reserva_Cant_Noches, h.ID_Habitacion
 FROM gd_esquema.Maestra m
-JOIN AEFI.TL_Habitacion h ON (m.Habitacion_Numero = h.Numero)
-JOIN AEFI.TL_Regimen r ON (m.Regimen_Descripcion= r.Descripcion)
+JOIN AEFI.TL_Habitacion h ON (...)
+
+No se bien como se le setea la FK, Usando el JOIN no tenemos nada para comparar entre Reserva y Habitacion */
 
 
 INSERT INTO [AEFI].[TL_Factura](Numero, Fecha, Total)
@@ -31,18 +33,8 @@ INSERT INTO [AEFI].[TL_Estadia](Fecha_Inicio, Cantidad_Noches)
 SELECT DISTINCT m.Estadia_Fecha_Inicio, m.Estadia_Cant_Noches
 FROM gd_esquema.Maestra m
 
+/*FALTA LA PARTE DE REGIMEN*/
 
 
-INSERT INTO [AEFI].[TL_Cliente] (ID_Tipo_Documento, Nro_Documento, Nombre, Apellido, Mail, Fecha_Nacimiento, Direccion)
-SELECT DISTINCT 2, m.Cliente_Pasaporte_Nro, m.Cliente_Nombre, m.Cliente_Apellido, m.Cliente_Mail, m.Cliente_Fecha_Nac, m.Cliente_Dom_Calle+/*' '+m.Cliente_Nro_Calle+' '+m.Cliente_Piso+*/' '+m.Cliente_Depto
-FROM gd_esquema.Maestra m 
-WHERE m.Cliente_Pasaporte_Nro IS NOT NULL;
 
-INSERT INTO [AEFI].[TL_Reserva] (Fecha_Desde, Codigo_Reserva, Cantidad_Noches, ID_Cliente, ID_Regimen, ID_Habitacion)
-SELECT DISTINCT   m.Reserva_Fecha_Inicio, m.Reserva_Codigo, m.Reserva_Cant_Noches, c.ID_Cliente, r.ID_Regimen, h.ID_Habitacion
-FROM gd_esquema.Maestra m,AEFI.TL_Cliente c,AEFI.TL_Regimen r,AEFI.TL_Habitacion h
-/*JOIN AEFI.TL_Cliente c ON (c.Nro_Documento = m.Cliente_Pasaporte_Nro)
-JOIN AEFI.TL_Regimen r ON (r.Descripcion = m.Regimen_Descripcion)
-JOIN AEFI.TL_Habitacion h ON (m.Habitacion_Numero = h.Numero)*/
-WHERE (c.Nro_Documento = m.Cliente_Pasaporte_Nro) AND (r.Descripcion = m.Regimen_Descripcion) AND (m.Habitacion_Numero = h.Numero) /*AND (c.ID_Cliente != NULL)*/
 COMMIT

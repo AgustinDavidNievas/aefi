@@ -9,23 +9,7 @@ namespace FrbaHotel.Servicios
 {
     class Utilidades
     {
-        /*
-           public static SqlConnection conectar()
-        {
-            string connectionString = Program.conexion;
-            return new SqlConnection(connectionString);
-        }
-
-        public static string agregarApostrofos(string palabra)
-        {
-            return "'" + palabra + "'";
-        }
-
-        public static string agregarPorcentajes(string palabra)
-        {
-            return "%" + palabra + "%";
-        }
-         */
+      
        
 
         public static string cifrar256(string texto)

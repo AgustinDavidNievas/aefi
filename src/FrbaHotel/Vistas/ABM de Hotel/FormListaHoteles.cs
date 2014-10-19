@@ -13,7 +13,9 @@ using FrbaHotel.Menu;
 namespace FrbaHotel.Vistas.ABM_de_Hotel
 {
     public partial class FormListaDeHoteles : Form
-    {
+    {                      
+
+
         SqlConnection conexion = BaseDeDatos.ObtenerConexion();
 
         public FormListaDeHoteles()
@@ -34,43 +36,48 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
 
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
+        private void FormListaDeHoteles_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-
-        }
-        /*
+        
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             conexion.Open();
 
 
-            string consulta = "SELECT h.Cantidad_Estrellas, h.Ciudad, h.Pais" +
-              "FROM AEFI.TL_Hotel h";
-            
+            string Query = "SELECT h.Nombre, h.Cantidad_Estrellas, h.Ciudad, h.Pais, h.Mail, h.Telefono, h.Calle, h.Fecha_Creacion, h.Nro_Calle FROM AEFI.TL_Hotel h WHERE h.ID_Hotel IS NOT NULL";
+                
 
 
 
             if (!String.IsNullOrEmpty(tbCantEstrellas.Text))
             {
-                String aux = Utilidades.agregarApostrofos(tbCantEstrellas.Text);
-                consulta = consulta + " AND h.Cantidad_Estrellas = " + aux;
-            }
-            if (!String.IsNullOrEmpty(tbCiudad.Text))
-            {
-                String aux = Utilidades.agregarApostrofos("%" + tbCiudad.Text + "%");
-                consulta = consulta + " AND h.Ciudad LIKE " + aux;
+                String aux = BaseDeDatos.agregarApostrofos(tbCantEstrellas.Text);
+                Query = Query + " AND h.Cantidad_Estrellas LIKE " + aux;   
             }
 
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conexion);
+            if (!String.IsNullOrEmpty(tbCiudad.Text))
+            {
+                String aux = BaseDeDatos.agregarApostrofos("%" + tbCiudad.Text + "%");
+                Query = Query + " AND h.Ciudad LIKE " + aux;   
+            }
+
+           
+
+
+           // falta Nombre, Pais...
+           
+
+            
+
+           SqlDataAdapter adapter = new SqlDataAdapter(Query, conexion);
             DataTable tabla = new DataTable();
             adapter.Fill(tabla);
             dgvHoteles.DataSource = tabla;
-            conexion.Close();
+          
+          
+           conexion.Close();
 
         }
 
@@ -82,6 +89,19 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
             tbCiudad.Clear();
             tbPais.Clear();
         
-        }*/
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvHoteles.SelectedRows)
+            {
+                FormNuevoHotel alta = new FormNuevoHotel(1, row.Cells);
+                this.Hide();
+                alta.ShowDialog();
+                this.Close();
+            }
+        }
+
+       
     }
 }
