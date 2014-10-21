@@ -6,16 +6,17 @@ FROM gd_esquema.Maestra m
 WHERE Cliente_Nombre IS NOT NULL;
 
 
-INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle)
+INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Calle_Nro)
 SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle
 FROM gd_esquema.Maestra m
 /*FALTA AGREGARLE LA RECARGA DE ESTRELLAS */
 
+
+
+/*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
 SELECT DISTINCT m.Habitacion_Numero, m.Habitacion_Piso, m.Habitacion_Frente, m.Habitacion_Tipo_Descripcion, m.Habitacion_Tipo_Codigo, m.Habitacion_Tipo_Porcentual
-FROM gd_esquema.Maestra m
-/*Falta ver que seria Tipo_Habitacion */
-
+FROM gd_esquema.Maestra m */
 
 /*INSERT INTO [AEFI].[TL_Reserva] (Fecha_Desde, Codigo_Reserva, Cantidad_Noches, ID_Habitacion)
 SELECT DISTINCT m.Reserva_Fecha_Inicio, m.Reserva_Codigo, m.Reserva_Cant_Noches, h.ID_Habitacion
