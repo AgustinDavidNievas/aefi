@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaHotel.Vistas.ABM_de_Hotel;
+using FrbaHotel.Vistas.ABM_de_Habitacion;
 
 namespace FrbaHotel.Menu
 {
@@ -36,6 +37,16 @@ namespace FrbaHotel.Menu
             this.Hide();
             lh.ShowDialog();
             this.Close();
+        }
+
+        private void btnNuevaHabitacion_Click(object sender, EventArgs e)
+        {
+            
+            FormNuevaHabitacion lh = new FormNuevaHabitacion();
+            this.Hide();
+            lh.ShowDialog();
+            this.Close();
+
         }
     }
 }

@@ -6,7 +6,7 @@ FROM gd_esquema.Maestra m
 WHERE Cliente_Nombre IS NOT NULL;
 
 
-INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Calle_Nro)
+INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle)
 SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle
 FROM gd_esquema.Maestra m
 /*FALTA AGREGARLE LA RECARGA DE ESTRELLAS */

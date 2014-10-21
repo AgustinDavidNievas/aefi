@@ -51,6 +51,8 @@
             this.btnCrear = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbNroCalle = new System.Windows.Forms.TextBox();
+            this.lbIdHotel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbNombre
@@ -181,10 +183,22 @@
             this.tbNroCalle.Name = "tbNroCalle";
             this.tbNroCalle.Tag = "";
             // 
+            // lbIdHotel
+            // 
+            resources.ApplyResources(this.lbIdHotel, "lbIdHotel");
+            this.lbIdHotel.Name = "lbIdHotel";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
             // FormNuevoHotel
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbIdHotel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNroCalle);
             this.Controls.Add(this.btnCrear);
@@ -238,5 +252,7 @@
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbNroCalle;
+        private System.Windows.Forms.Label lbIdHotel;
+        private System.Windows.Forms.Label label4;
     }
 }

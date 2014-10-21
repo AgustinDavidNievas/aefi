@@ -30,6 +30,7 @@
         {
             this.btnListaHoteles = new System.Windows.Forms.Button();
             this.btnNuevoHotel = new System.Windows.Forms.Button();
+            this.btnNuevaHabitacion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListaHoteles
@@ -52,11 +53,22 @@
             this.btnNuevoHotel.UseVisualStyleBackColor = true;
             this.btnNuevoHotel.Click += new System.EventHandler(this.btnNuevoHotel_Click);
             // 
+            // btnNuevaHabitacion
+            // 
+            this.btnNuevaHabitacion.Location = new System.Drawing.Point(83, 92);
+            this.btnNuevaHabitacion.Name = "btnNuevaHabitacion";
+            this.btnNuevaHabitacion.Size = new System.Drawing.Size(109, 23);
+            this.btnNuevaHabitacion.TabIndex = 2;
+            this.btnNuevaHabitacion.Text = "Nueva Habitacion";
+            this.btnNuevaHabitacion.UseVisualStyleBackColor = true;
+            this.btnNuevaHabitacion.Click += new System.EventHandler(this.btnNuevaHabitacion_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnNuevaHabitacion);
             this.Controls.Add(this.btnNuevoHotel);
             this.Controls.Add(this.btnListaHoteles);
             this.Name = "FormMenu";
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button btnListaHoteles;
         private System.Windows.Forms.Button btnNuevoHotel;
+        private System.Windows.Forms.Button btnNuevaHabitacion;
     }
 }

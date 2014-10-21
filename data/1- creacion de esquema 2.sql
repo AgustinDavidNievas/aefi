@@ -60,11 +60,11 @@ CREATE TABLE [AEFI].[TL_Regimen] (
 
 CREATE TABLE [AEFI].[TL_Hotel](
 		[ID_Hotel] NUMERIC(18,0) IDENTITY(1,1) PRIMARY KEY,
-		[Mail] nvarchar(255),
-		[Nombre] nvarchar(55),		
+		[Nombre] nvarchar(55),	
+		[Mail] nvarchar(255),	
 		[Telefono] NUMERIC(18,0),
 		[Calle] nvarchar(255),
-		[Calle_Nro] NUMERIC(18,0),
+		[Nro_Calle] NUMERIC(18,0),
 		[Cantidad_Estrellas] NUMERIC(18,0),
 		[Recarga_Estrellas] NUMERIC(18,0),
 		[Ciudad] nvarchar(255),
