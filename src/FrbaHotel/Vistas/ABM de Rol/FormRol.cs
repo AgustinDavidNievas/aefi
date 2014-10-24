@@ -29,5 +29,15 @@ namespace FrbaHotel.ABM_de_Rol
         {
             /*Agus se la come, Lucas se la da :O */
         }
+
+        private void FormRol_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

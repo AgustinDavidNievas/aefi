@@ -109,6 +109,7 @@
             this.cxbRol.Name = "cxbRol";
             this.cxbRol.Size = new System.Drawing.Size(166, 21);
             this.cxbRol.TabIndex = 8;
+            this.cxbRol.SelectedIndexChanged += new System.EventHandler(this.cxbRol_SelectedIndexChanged);
             // 
             // label1
             // 

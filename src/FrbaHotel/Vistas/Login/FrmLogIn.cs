@@ -89,7 +89,7 @@ namespace FrbaHotel.Login
 
             String consultaRoles = "SELECT Descripcion " +
                                     "FROM AEFI.TL_Rol r " +
-                                    "JOIN AEFI.TL_Uuario_Por_Rol x ON (x.ID_Rol = r.ID_Rol) " +
+                                    "JOIN AEFI.TL_Usuario_Por_Rol x ON (x.ID_Rol = r.ID_Rol) " +
                                     "JOIN AEFI.TL_Usuario u ON (u.ID_Usuario = x.ID_usuario) " +
                                     "WHERE Username = @Username AND r.Activo = 1";
 
@@ -205,6 +205,11 @@ namespace FrbaHotel.Login
             {
                 conexion.Close();
             }
+        }
+
+        private void cxbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
