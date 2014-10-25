@@ -48,5 +48,16 @@ namespace FrbaHotel.Menu
             this.Close();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            FormListaHabitacion lh = new FormListaHabitacion();
+            this.Hide();
+            lh.ShowDialog();
+            this.Close();
+
+
+        }
     }
 }

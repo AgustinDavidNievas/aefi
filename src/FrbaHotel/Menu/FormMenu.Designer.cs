@@ -31,6 +31,7 @@
             this.btnListaHoteles = new System.Windows.Forms.Button();
             this.btnNuevoHotel = new System.Windows.Forms.Button();
             this.btnNuevaHabitacion = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListaHoteles
@@ -63,11 +64,22 @@
             this.btnNuevaHabitacion.UseVisualStyleBackColor = true;
             this.btnNuevaHabitacion.Click += new System.EventHandler(this.btnNuevaHabitacion_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(83, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Listado Habitacion";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNuevaHabitacion);
             this.Controls.Add(this.btnNuevoHotel);
             this.Controls.Add(this.btnListaHoteles);
@@ -84,5 +96,6 @@
         private System.Windows.Forms.Button btnListaHoteles;
         private System.Windows.Forms.Button btnNuevoHotel;
         private System.Windows.Forms.Button btnNuevaHabitacion;
+        private System.Windows.Forms.Button button1;
     }
 }
