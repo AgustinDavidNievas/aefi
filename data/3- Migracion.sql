@@ -29,6 +29,10 @@ FROM gd_esquema.Maestra
 
 SET IDENTITY_INSERT AEFI.TL_Rerserva OFF
 */
+INSERT INTO [AEFI].[TL_Regimen] (Descripcion,Precion_Base)
+SELECT DISTINCT Regimen_Descripcion, Regimen_Precio
+FROM  gd_esquema.Maestra
+	
 
 /*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
