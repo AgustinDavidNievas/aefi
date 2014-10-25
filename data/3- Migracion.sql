@@ -34,6 +34,16 @@ SELECT DISTINCT Regimen_Descripcion, Regimen_Precio
 FROM  gd_esquema.Maestra
 	
 
+--Uso codigos que ya existen
+	SET IDENTITY_INSERT [AEFI].[TL_Consumible] ON
+	INSERT INTO [AEFI].[TL_Consumible](ID_Consumible, Descripcion, Precio)
+	SELECT DISTINCT Consumible_Codigo, Consumible_Descripcion, Consumible_Precio
+	FROM gd_esquema.Maestra 
+	WHERE Consumible_Codigo IS NOT NULL
+	
+
+	SET IDENTITY_INSERT [AEFI].[TL_Consumible] OFF
+GO
 /*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
 SELECT DISTINCT m.Habitacion_Numero, m.Habitacion_Piso, m.Habitacion_Frente, m.Habitacion_Tipo_Descripcion, m.Habitacion_Tipo_Codigo, m.Habitacion_Tipo_Porcentual
