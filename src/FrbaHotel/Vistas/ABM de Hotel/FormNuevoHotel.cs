@@ -37,7 +37,7 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
             tbCiudad.Text = cells[3].Value.ToString();
             tbPais.Text = cells[4].Value.ToString();
             tbNroCalle.Text = cells[9].Value.ToString();
-            //dtpFecha.Text = cells[8].Value.ToString();
+            dtpFecha.Text = cells[8].Value.ToString();
             //cbRegimen.Text = cells[8].Value.ToString();
             btnCrear.Text = "Actualizar";
         

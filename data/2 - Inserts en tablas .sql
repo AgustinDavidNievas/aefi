@@ -8,7 +8,6 @@ VALUES ('DNI'), ('PA'), ('CUIL'), ('LE');
 INSERT INTO [AEFI].[TL_Usuario](Username, Password) 
 VALUES ('admin','E6B87050BFCB8143FCB8DB0170A4DC9ED00D904DDD3E2A4AD1B1E8DC0FDC9BE7')
 
-
 INSERT INTO AEFI.TL_Rol (Descripcion) 
 VALUES ('Guest'),('Recepcionista'),('Administrador'), ('AdministradorGeneral');
 

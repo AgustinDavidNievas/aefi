@@ -10,6 +10,9 @@ using FrbaHotel.Servicios;
 using System.Data.SqlClient;
 using FrbaHotel.Menu;
 
+
+
+
 namespace FrbaHotel.Vistas.ABM_de_Hotel
 {
     public partial class FormListaDeHoteles : Form
@@ -46,7 +49,7 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
             conexion.Open();
 
 
-            string Query = "SELECT h.ID_Hotel, h.Nombre, h.Cantidad_Estrellas, h.Ciudad, h.Pais, h.Mail, h.Telefono, h.Calle, h.Fecha_Creacion, h.Nro_Calle FROM AEFI.TL_Hotel h WHERE h.ID_Hotel IS NOT NULL";
+            string Query = "SELECT h.ID_Hotel, h.Nombre, h.Cantidad_Estrellas, h.Ciudad, h.Pais, h.Mail, h.Telefono, h.Calle, h.Fecha_Creacion, h.Nro_Calle FROM AEFI.TL_Hotel h WHERE h.Cantidad_Estrellas IS NOT NULL";
                 
 
 
@@ -99,6 +102,18 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
                 this.Hide();
                 alta.ShowDialog();
                 this.Close();
+            }
+        }
+
+        private void btnDesabilitar_Click(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dgvHoteles.SelectedRows)
+            {
+                FormBajaHotel baja = new FormBajaHotel(row.Cells);
+                this.Hide();
+                baja.ShowDialog();
+               
             }
         }
 

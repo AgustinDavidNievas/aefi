@@ -73,6 +73,7 @@
             this.btnDesabilitar.TabIndex = 3;
             this.btnDesabilitar.Text = "Deshabilitar";
             this.btnDesabilitar.UseVisualStyleBackColor = true;
+            this.btnDesabilitar.Click += new System.EventHandler(this.btnDesabilitar_Click);
             // 
             // tbNombre
             // 
