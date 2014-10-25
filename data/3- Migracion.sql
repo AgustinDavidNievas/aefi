@@ -10,16 +10,10 @@ SELECT DISTINCT Cliente_Nombre,Cliente_Apellido,'DNI' /*ver si va 'PAS'*/,Client
 Cliente_Mail,Cliente_Dom_Calle,Cliente_Nro_Calle,Cliente_Piso,Cliente_Depto,Cliente_Fecha_Nac,Cliente_Nacionalidad,,'CABA'/*creo la ciudad de bs as para las ciudades por default*/,'Argentina'
 FROM gd_esquema.Maestra
 WHERE Cliente_Apellido IS NOT NULL AND Cliente_Nombre IS NOT NULL
-GO
 
- 
-
-
-INSERT INTO [AEFI].[TL_Hotel] (Calle, Ciudad, Cantidad_Estrellas, Nro_Calle)
-SELECT DISTINCT m.Hotel_Calle, m.Hotel_Ciudad, m.Hotel_CantEstrella, m.Hotel_Nro_Calle
-FROM gd_esquema.Maestra m
-/*FALTA AGREGARLE LA RECARGA DE ESTRELLAS */
-
+INSERT INTO [AEFI].[TL_Hotel](Calle,Nro_Calle,Ciudad,Cantidad_Estrellas,Recarga_Estrellas)
+SELECT DISTINCT Hotel_Calle, Hotel_Nro_Calle, Hotel_Ciudad, Hotel_CantEstrella, Hotel_Recarga_Estrella
+FROM gd_esquema.Maestra
 
 
 /*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
