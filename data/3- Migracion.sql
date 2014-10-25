@@ -19,7 +19,16 @@ INSERT INTO [AEFI].[TL_Tipo_Habitacion](ID_Tipo_Habitacion,Descripcion,Porcentua
 SELECT DISTINCT Habitacion_Tipo_Codigo, Habitacion_Tipo_Descripcion, Habitacion_Tipo_Porcentual
 FROM  gd_esquema.Maestra
 WHERE Habitacion_Tipo_Codigo IS NOT NULL
-	
+
+/* me tira error no se si esta bien migracion de reserva */
+/*SET IDENTITY_INSERT AEFI.TL_Rerserva ON
+
+INSERT INTO [AEFI].[TL_Reserva] (ID_Reserva, Fecha_Reserva,Cantidad_Noches)
+SELECT DISTINCT Reserva_Codigo,Reserva_Fecha_Inicio,Reserva_Cant_Noches
+FROM gd_esquema.Maestra
+
+SET IDENTITY_INSERT AEFI.TL_Rerserva OFF
+*/
 
 /*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
