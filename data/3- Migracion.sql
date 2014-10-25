@@ -15,6 +15,11 @@ INSERT INTO [AEFI].[TL_Hotel](Calle,Nro_Calle,Ciudad,Cantidad_Estrellas,Recarga_
 SELECT DISTINCT Hotel_Calle, Hotel_Nro_Calle, Hotel_Ciudad, Hotel_CantEstrella, Hotel_Recarga_Estrella
 FROM gd_esquema.Maestra
 
+INSERT INTO [AEFI].[TL_Tipo_Habitacion](ID_Tipo_Habitacion,Descripcion,Porcentual)
+SELECT DISTINCT Habitacion_Tipo_Codigo, Habitacion_Tipo_Descripcion, Habitacion_Tipo_Porcentual
+FROM  gd_esquema.Maestra
+WHERE Habitacion_Tipo_Codigo IS NOT NULL
+	
 
 /*TODO: REVEER MIGRACION DE TL HABITACION Y TL TIPO
 INSERT INTO [AEFI].[TL_Habitacion] (Numero, Piso, Vista, Tipo_Comodidades, Tipo_Codigo, Tipo_Porcentual)
