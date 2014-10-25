@@ -5,9 +5,9 @@ SELECT m.Cliente_Nombre + '_' + m.Cliente_Apellido, '03AC674216F3E15C761EE1A5E25
 FROM gd_esquema.Maestra m
 WHERE Cliente_Nombre IS NOT NULL;
 
-INSERT INTO AEFI.TL_Cliente(Nombre,Apellido,ID_Tipo_Documento,Documento_Nro,Mail,Calle,Calle_Nro,Piso,Dpto,Fecha_Nacimiento,Nacionalidad,PaisOrigen)
+INSERT INTO AEFI.TL_Cliente(Nombre,Apellido,ID_Tipo_Documento,Documento_Nro,Mail,Calle,Calle_Nro,Piso,Dpto,Fecha_Nacimiento,Nacionalidad,Localidad,PaisOrigen)
 SELECT DISTINCT Cliente_Nombre,Cliente_Apellido,'DNI' /*ver si va 'PAS'*/,Cliente_Pasaporte_Nro /*lo tomamos como el nro de pasaporte al nro de doc*/,
-Cliente_Mail,Cliente_Dom_Calle,Cliente_Nro_Calle,Cliente_Piso,Cliente_Depto,Cliente_Fecha_Nac,Cliente_Nacionalidad,'Argentina'
+Cliente_Mail,Cliente_Dom_Calle,Cliente_Nro_Calle,Cliente_Piso,Cliente_Depto,Cliente_Fecha_Nac,Cliente_Nacionalidad,,'CABA'/*creo la ciudad de bs as para las ciudades por default*/,'Argentina'
 FROM gd_esquema.Maestra
 WHERE Cliente_Apellido IS NOT NULL AND Cliente_Nombre IS NOT NULL
 GO
