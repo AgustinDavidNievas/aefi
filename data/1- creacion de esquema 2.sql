@@ -21,7 +21,7 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[ID_Cliente] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
 		[Nombre] NVARCHAR(255),
 		[Apellido] NVARCHAR(255),
-		[ID_Tipo_Documento] NUMERIC(18,0),
+		[ID_Tipo_Documento] nvarchar(255),
 		[Documento_Nro] NUMERIC(18,0),
 		[Mail] nvarchar(255), /*UNIQUE: QUITE ESTO PORQUE HAY MAILS REPETIDOS Y NO PODEMOS PERDER DATOS */
 		[Calle] NVARCHAR (255),
@@ -31,7 +31,8 @@ CREATE TABLE [AEFI].[TL_Cliente](
 		[Telefono] NUMERIC(18,0),		
 		[Fecha_Nacimiento] datetime,
 		[Nacionalidad] NVARCHAR(255),
-		
+		[Localidad] NVARCHAR(255), 
+		[PaisOrigen] NVARCHAR(255)
 		);
 	
 
