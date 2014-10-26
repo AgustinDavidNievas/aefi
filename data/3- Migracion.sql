@@ -83,7 +83,7 @@ INSERT INTO [AEFI].[TL_Factura](Numero, Fecha, Total, ID_Cliente)
 SELECT DISTINCT m.Factura_Nro, m.Factura_Fecha, m.Factura_Total, x.ID_Cliente
 FROM gd_esquema.Maestra m
 JOIN AEFI.TL_Cliente x ON (x.Documento_Nro = m.Cliente_Pasaporte_Nro)
-WHERE m.Factura_Nro NOT NULL
+WHERE m.Factura_Nro IS NOT NULL;
 
 
 /*INSERT INTO [AEFI].[TL_Factura](Numero, Fecha, Total, ID_Cliente)
