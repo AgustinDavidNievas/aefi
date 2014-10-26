@@ -30,15 +30,18 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
             InitializeComponent();
             lbIdHotel.Text = cells[0].Value.ToString();
             tbNombre.Text = cells[1].Value.ToString();
-            tbMail.Text = cells[5].Value.ToString();
-            tbTelefono.Text = cells[6].Value.ToString();
-            tbCantEstrellas.Text = cells[2].Value.ToString();
-            tbCalle.Text = cells[7].Value.ToString();
-            tbCiudad.Text = cells[3].Value.ToString();
-            tbPais.Text = cells[4].Value.ToString();
-            tbNroCalle.Text = cells[9].Value.ToString();
-            dtpFecha.Text = cells[8].Value.ToString();
-            //cbRegimen.Text = cells[8].Value.ToString();
+            tbMail.Text = cells[2].Value.ToString();
+            tbTelefono.Text = cells[3].Value.ToString();
+            tbCalle.Text = cells[4].Value.ToString();
+            tbNroCalle.Text = cells[5].Value.ToString();
+            tbCantEstrellas.Text = cells[6].Value.ToString();
+            nudRecarga.Text = cells[7].Value.ToString();
+            tbCiudad.Text = cells[8].Value.ToString();
+            tbPais.Text = cells[9].Value.ToString();
+            //dtpFecha.Text = cells[10].Value.ToString();
+            
+            
+            //cbRegimen.Text = cells[7].Value.ToString();
             btnCrear.Text = "Actualizar";
         
         }
@@ -118,7 +121,8 @@ namespace FrbaHotel.Vistas.ABM_de_Hotel
                 comando.Parameters.Add(new SqlParameter("@Ciudad", tbCiudad.Text));
                 comando.Parameters.Add(new SqlParameter("@Pais", tbPais.Text));
                 comando.Parameters.Add(new SqlParameter("@NroCalle", tbNroCalle.Text));
-                
+                comando.Parameters.Add(new SqlParameter("@Recarga_Estrellas", nudRecarga.Text));
+
 
                 SqlDataReader dr = comando.ExecuteReader();
 

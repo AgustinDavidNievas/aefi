@@ -23,6 +23,27 @@ namespace FrbaHotel.Vistas.ABM_de_Habitacion
             InitializeComponent();
             cmbVista.Items.Add("S");
             cmbVista.Items.Add("N");
+            cmbTHabitacion.Items.Add("");
+
+            try
+            {
+                conexion.Open();
+                string consulta = "SELECT descripcion FROM AEFI.TL_Tipo_Habitacion ORDER BY ID_Tipo_Habitacion ";
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                    cmbTHabitacion.Items.Add(reader[0]);
+                reader.Close();
+            }
+            catch (SqlException exc)
+            {
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
         }
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
@@ -47,7 +68,6 @@ namespace FrbaHotel.Vistas.ABM_de_Habitacion
                 comando.Parameters.Add(new SqlParameter("@Vista", cmbVista.Text));
                 comando.Parameters.Add(new SqlParameter("@Tipo_Habitacion", cmbTHabitacion.Text));
                 comando.Parameters.Add(new SqlParameter("@Descripcion", rtbDescripcion.Text));
-                comando.Parameters.Add(new SqlParameter("@Porcentual", tbPorcentual.Text));
 
 
                 SqlDataReader dr = comando.ExecuteReader();

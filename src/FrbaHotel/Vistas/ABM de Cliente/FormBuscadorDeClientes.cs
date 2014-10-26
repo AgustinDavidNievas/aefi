@@ -13,7 +13,7 @@ namespace FrbaHotel.Vistas.ABM_de_Cliente
 {
     public partial class FormBuscadorDeClientes : Form
     {
-        SQLConection conexion = BaseDeDatos.ObtenerConexion();
+        SqlConnection conexion = BaseDeDatos.ObtenerConexion();
 
         public FormBuscadorDeClientes()
         {
@@ -114,5 +114,4 @@ namespace FrbaHotel.Vistas.ABM_de_Cliente
     }
         }
         
-    }
-}
+ 
