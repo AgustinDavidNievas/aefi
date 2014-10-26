@@ -55,7 +55,7 @@ CREATE TABLE [AEFI].[TL_Funcionalidad](
 CREATE TABLE [AEFI].[TL_Regimen] (
 		[ID_Regimen] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY,
 		[Descripcion] NVARCHAR(255),
-		[Precion_Base] NUMERIC(18,2),
+		[Precio_Base] NUMERIC(18,2),
 		[Estado] bit DEFAULT 1 /*1 activo 0 no activo */
 );		
 
@@ -89,7 +89,7 @@ CREATE TABLE [AEFI].[TL_Habitacion](
 
 
 CREATE TABLE [AEFI].[TL_Tipo_Habitacion](
-		[ID_Tipo_Habitacion] NUMERIC(18,0), /*EX TIPO_CODIGO DE HABITACION*/
+		[ID_Tipo_Habitacion] NUMERIC(18,0) IDENTITY (1,1) PRIMARY KEY, /*EX TIPO_CODIGO DE HABITACION*/
 		[Descripcion] NVARCHAR(255),
 		[Porcentual] NUMERIC(18,2),
 		[Cantidad_Huespedes_Total] NUMERIC(18,0),
