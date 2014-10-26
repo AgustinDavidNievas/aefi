@@ -81,8 +81,8 @@ CREATE TABLE [AEFI].[TL_Habitacion](
 		[Numero] numeric(18,0),
 		[Piso] numeric (18,0),
 		[Vista] nvarchar(50),
-		[Tipo_Comodidades] nvarchar(255),
-		[Tipo_Porcentual] numeric (18,2),
+		[Tipo_Comodidades] nvarchar(255),/*ESTO NO VA*/
+		[Tipo_Porcentual] numeric (18,2),/*ESTO NO VA*/
 		[ID_Hotel] NUMERIC(18,0),
 		FOREIGN KEY (ID_Hotel) REFERENCES [AEFI].[TL_Hotel] (ID_Hotel)
 		);
