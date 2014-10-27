@@ -77,3 +77,48 @@ BEGIN
 	END;
 
 END;
+
+GO
+
+CREATE PROCEDURE AEFI.insertar_rol_funcionalidad
+	@ID_Funcionalidad NUMERIC(18,0),
+	@ID_rol NUMERIC(18,0)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM AEFI.TL_Funcionalidad_Rol WHERE ID_Funcionalidad = @ID_Funcionalidad AND ID_Rol = @ID_rol)
+	INSERT INTO AEFI.TL_Funcionalidad_Rol VALUES (@ID_Rol, @ID_Funcionalidad)
+END;
+
+
+GO
+
+CREATE PROCEDURE AEFI.eliminar_funcionalidad_rol
+	@ID_Funcionalidad NUMERIC(18,0),
+	@ID_Rol NUMERIC(18,0)
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM AEFI.TL_Funcionalidad_Rol WHERE ID_Funcionalidad = @ID_funcionalidad AND ID_Rol = @ID_Rol)
+	DELETE AEFI.TL_Funcionalidad_Rol WHERE ID_Rol = @ID_Rol AND ID_Funcionalidad = @ID_Funcionalidad
+END;
+
+
+CREATE PROCEDURE AEFI.inhabilitar_rol
+	@ID_rol NUMERIC(18,0)
+AS
+BEGIN
+	UPDATE AEFI.TL_Rol
+	SET Activo = 0
+	WHERE ID_Rol = @ID_rol;
+
+END;
+
+
+CREATE PROCEDURE AEFI.habilitar_rol
+	@ID_rol NUMERIC(18,0)
+AS
+BEGIN
+	UPDATE AEFI.TL_Rol
+	SET Activo = 1
+	WHERE ID_Rol = @ID_rol;
+
+END;

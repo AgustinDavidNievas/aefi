@@ -15,6 +15,13 @@ INSERT INTO [AEFI].[TL_Funcionalidad] (Descripcion)
 VALUES ('ABM de Rol'), ('ABM de Usuario'), ('ABM de Cliente (Huespedes)'), ('ABM de Hotel'), ('ABM de Habitacion'), ('ABM de Regimen de Estadia'),
 	('Generar o Modificar una Reserva'), ('Cancelar Reserva'), ('Registrar Estadía (check-in/check-out)'), ('Registrar Consumibles'), ('Facturar Estadia'), ('Listado Estadistico');
 
+UPDATE AEFI.TL_Funcionalidad
+SET Restriccion = x.ID_Rol
+FROM AEFI.TL_Rol x, AEFI.TL_Funcionalidad r
+WHERE r.Descripcion = 'ABM de Usuario'
+AND x.Descripcion = 'Administrador';
+
+
 /* FUNCIONALIDADES DE GUEST */
 INSERT INTO [AEFI].[TL_Funcionalidad_Rol](ID_Rol, ID_Funcionalidad)
 VALUES (1,7),(1,8);
